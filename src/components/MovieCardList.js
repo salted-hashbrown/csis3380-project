@@ -1,18 +1,14 @@
 import React from 'react';
-import Card from './Card';
+import MovieCard from './MovieCard';
 import '../css/movieCard.css';
 
-const CardList = ({movieData}) => {
+const MovieCardList = ({movieData}) => {
     return (
         <div className='cardContainer'>            
                 {
-<<<<<<< Updated upstream:src/components/CardList.js
-                    movieData.map((movie, i) => {
-=======
                     movieData.results.map((movie, i) => {
->>>>>>> Stashed changes:src/components/MovieCardList.js
                         return(
-                            <Card
+                            <MovieCard
                                 key = {movie.id}
                                 title = {movie.title}
                                 poster_path = {movie.poster_path}
@@ -26,6 +22,6 @@ const CardList = ({movieData}) => {
     )
 };
 
-export default CardList;
+export default MovieCardList;
 
 
