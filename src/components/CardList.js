@@ -6,11 +6,7 @@ const CardList = ({movieData}) => {
     return (
         <div className='cardContainer'>            
                 {
-<<<<<<< Updated upstream:src/components/CardList.js
                     movieData.map((movie, i) => {
-=======
-                    movieData.results.map((movie, i) => {
->>>>>>> Stashed changes:src/components/MovieCardList.js
                         return(
                             <Card
                                 key = {movie.id}
