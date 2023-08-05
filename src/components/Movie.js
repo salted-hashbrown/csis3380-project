@@ -1,4 +1,20 @@
 import React from 'react';
+import {movieData} from '../data/movieData';
+import CardList from './CardList';
+import '../css/movieCard.css';
+
+const Movie = () => {
+  return (
+    <div className="App">
+        <CardList movieData = {movieData}/>
+    </div>
+  );
+}
+
+export default Movie;
+
+/*
+import React from 'react';
 import MovieList from '../data/teachers';
 
 const Movie = () => {
@@ -23,3 +39,5 @@ const Movie = () => {
 }
 
 export default Movie;
+*/
+
