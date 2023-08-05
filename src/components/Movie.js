@@ -1,28 +1,38 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import {movieData} from '../data/movieData';
+//import {movieData} from '../data/movieData';
 import MovieCardList from './MovieCardList';
 import '../css/movieCard.css';
+
+//popular movies
+//let movieUrl ='https://api.themoviedb.org/3/movie/popular?api_key=cfe53bfcdf03a4fe201ee5cfc56feacb&language=en-US&page=1';
+
+//top-rated movies
+let movieUrl='https://api.themoviedb.org/3/movie/top_rated?api_key=cfe53bfcdf03a4fe201ee5cfc56feacb&language=en-US&page=1';
 
 const Movie = () => {
 
  /* 
   const [movieData, setMovieData] = useState({ results: [] });
-  useEffect(() => {
-    fetch('https://api.themoviedb.org/3/movie/popular?api_key=cfe53bfcdf03a4fe201ee5cfc56feacb&language=en-US&page=1')
-      .then((response) => response.json())
-      .then((data) => setMovieData(data))
-      .catch((error) => console.error('There was an error fetching the data', error));
-  }, []);
   */
 
+  const [movieData, setMovieData] = useState('');
+  useEffect(() => {
+    fetch(movieUrl)
+    .then(res => res.json())
+    .then(data => setMovieData(data))
+    .catch(err => console.log('Error during fetching the data', err))    
+  }, []);
  
   return (
     /* for displaying cards and search filter*/
+    
+    
     <div className='moviePageContainer'>
-        
+
+
         {/* for displaying cards */} 
-        <MovieCardList movieData = {movieData}/>
+        {movieData ? <MovieCardList movieData={movieData} /> : 'Loading...'}
 
         {/* for displaying search filter */} 
         <div className='movieSearchContainer'>
@@ -79,7 +89,6 @@ const Movie = () => {
 
         </div>
     </div>
-
   );
 }
 
