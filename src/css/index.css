@@ -69,8 +69,9 @@ button {
 ==================================== */
 
 .container {
-  width: 95%;
-  max-width: 780px;
+  /* width: 95%; */
+  width: 80%;
+  /* max-width: 780px; */
   padding-bottom: 2em;
   margin: 0 auto 2em;
   background: #fff;
@@ -154,7 +155,7 @@ header {
 }
 .icn-logo i {
   font-size: 2.45em;
-  line-height: 0;
+  /* line-height: 0; */
   margin-top: 30px;
 }
 .icn-error {
