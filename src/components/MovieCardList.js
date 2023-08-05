@@ -6,7 +6,7 @@ const MovieCardList = ({movieData}) => {
     return (
         <div className='cardContainer'>            
                 {
-                    movieData[0].results.map((movie, i) => {
+                    movieData.results.map((movie, i) => {
                         return(
                             <MovieCard
                                 key = {movie.id}
