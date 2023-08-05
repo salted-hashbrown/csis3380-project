@@ -1,11 +1,27 @@
 import React from 'react';
-import { Routes, Route, NavLink } from 'react-router-dom';
+import {reviewData} from '../data/reviewData';
+import ReviewCardList from './ReviewCardList';
+import '../css/movieCard.css';
 
-import HTML from './courses/HTML';
-import CSS from './courses/CSS';
-import JavaScript from './courses/JavaScript';
+//import { Routes, Route, NavLink } from 'react-router-dom';
 
-const Courses = () => (
+const Review = () => {
+  return (
+    /* for displaying cards and search filter*/
+    <div className='moviePageContainer'>
+        
+        {/* for displaying cards */} 
+        <ReviewCardList reviewData = {reviewData.results}/>
+    
+    </div>
+  )
+}
+
+export default Review;
+
+
+
+/* const Courses = () => (
   <div className="main-content courses">
     <div className="course-header group">
       <h2>Courses</h2>
@@ -28,8 +44,10 @@ const Courses = () => (
       <Route path="JavaScript" element={<JavaScript />} />
     </Routes>
 
-    {/* <Outlet /> */}
+
   </div>
 );
 
 export default Courses;
+
+ */

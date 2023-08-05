@@ -1,14 +1,14 @@
 import React from 'react';
-import Card from './Card';
+import MovieCard from './MovieCard';
 import '../css/movieCard.css';
 
-const CardList = ({movieData}) => {
+const MovieCardList = ({movieData}) => {
     return (
         <div className='cardContainer'>            
                 {
-                    movieData.map((movie, i) => {
+                    movieData[0].results.map((movie, i) => {
                         return(
-                            <Card
+                            <MovieCard
                                 key = {movie.id}
                                 title = {movie.title}
                                 poster_path = {movie.poster_path}
@@ -22,6 +22,6 @@ const CardList = ({movieData}) => {
     )
 };
 
-export default CardList;
+export default MovieCardList;
 
 
