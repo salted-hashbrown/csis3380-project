@@ -1,8 +1,9 @@
 .movieDetailsContainer{
     margin: 20px;
+    padding: 10px;
 }
 
-.card_img {
-    width: 200px;
-    cursor: pointer;  
+.moive_img {
+    width: 300px;    
   }
+

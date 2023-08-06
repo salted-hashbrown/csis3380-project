@@ -5,10 +5,10 @@ import MovieCardList from './MovieCardList';
 import '../css/movieCard.css';
 
 //popular movies
-//let movieUrl ='https://api.themoviedb.org/3/movie/popular?api_key=cfe53bfcdf03a4fe201ee5cfc56feacb&language=en-US&page=1';
+let movieUrl ='https://api.themoviedb.org/3/movie/popular?api_key=cfe53bfcdf03a4fe201ee5cfc56feacb&language=en-US&page=1';
 
 //top-rated movies
-let movieUrl='https://api.themoviedb.org/3/movie/top_rated?api_key=cfe53bfcdf03a4fe201ee5cfc56feacb&language=en-US&page=1';
+//let movieUrl='https://api.themoviedb.org/3/movie/top_rated?api_key=cfe53bfcdf03a4fe201ee5cfc56feacb&language=en-US&page=1';
 
 const Movie = () => {
 
