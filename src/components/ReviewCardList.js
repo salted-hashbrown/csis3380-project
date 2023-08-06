@@ -1,18 +1,19 @@
 import React from 'react';
 import ReviewCard from './ReviewCard';
-import '../css/movieCard.css';
+import '../css/reviewCard.css';
 
 const ReviewCardList = ({reviewData}) => {
     return (
-        <div className='cardContainer'>            
+        <div className='reviewCardContainer'>            
                 {
-                    reviewData[0].results.map((review, i) => {
+                    reviewData.results.map((review, i) => {
                         return(
                             <ReviewCard
-                                //key = {review.id}
+                                key = {review.id}
                                 author = {review.author}
-                                //updated_at = {review.results[i].updated_at}
-                                //rating = {review.results[i].author_details.rating}
+                                updated_at = {review.updated_at}                                
+                                rating = {review.author_details.rating}
+                                content = {review.content}
                             />
                         );
                     })

@@ -9,7 +9,8 @@ const MovieCardList = ({movieData}) => {
                     movieData.results.map((movie, i) => {
                         return(
                             <MovieCard
-                                key = {movie.id}
+                                key = {i}
+                                movie_id = {movie.id}
                                 title = {movie.title}
                                 poster_path = {movie.poster_path}
                                 release_date = {movie.release_date}
