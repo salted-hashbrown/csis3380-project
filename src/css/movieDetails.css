@@ -1,0 +1,8 @@
+.movieDetailsContainer{
+    margin: 20px;
+}
+
+.card_img {
+    width: 200px;
+    cursor: pointer;  
+  }
