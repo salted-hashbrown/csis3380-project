@@ -17,6 +17,7 @@ import '../css/reviewCard.css';
 
 
 const Review = () => {
+   //------------------------------------------------------------
   //for fetching movie details data 
   const [movieDetailsData, setmovieDetailsData] = useState('');
   const {movie_id} = useParams();
