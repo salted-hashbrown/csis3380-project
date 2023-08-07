@@ -77,7 +77,7 @@ const MovieDetails = (props) => {
                     </Box>
                 </p>
                 <textarea cols='60' rows='15'></textarea>
-                <button>Submit review</button>
+                <p><button>Submit review</button></p>
             </div>            
         </div>
     )

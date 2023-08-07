@@ -7,21 +7,14 @@ import ReviewCardList from './ReviewCardList';
 import '../css/reviewCard.css';
 
 //import { Routes, Route, NavLink } from 'react-router-dom';
-
-//top-rated movies
-//let reviewUrl_part1 = 'https://api.themoviedb.org/3/movie/';
-//let reviewUrl_part2 = '/reviews?language=en-US&page=1'
-//let reviewUrl = reviewUrl_part1 + "346698" + reviewUrl_part2;
-//let reviewUrl = 'https://api.themoviedb.org/3/movie/346698/reviews?language=en-US&page=1';
-
-
+const TMDB_authorization = process.env.REACT_APP_TMDB_AUTHORIZATION;
 
 const Review = () => {
    //------------------------------------------------------------
   //for fetching movie details data 
   const [movieDetailsData, setmovieDetailsData] = useState('');
   const {movie_id} = useParams();
-  //get data from https://api.themoviedb.org/3/movie/346698?language=en-US
+  //get data from TMDB
   const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${movie_id}?language=en-US`;
 
   useEffect(() => {
@@ -29,7 +22,7 @@ const Review = () => {
       method: 'GET',
       headers: {
         accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZmU1M2JmY2RmMDNhNGZlMjAxZWU1Y2ZjNTZmZWFjYiIsInN1YiI6IjY0YjA3MGQyM2UyZWM4MDBlYzhhMjQ4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.wWiTRi2q2Kiv7oFbytQOdkXqZFBnLToMAmQXkj5ZgHY'
+        Authorization: TMDB_authorization
       }
     })
     .then(res => res.json())
@@ -42,8 +35,8 @@ const Review = () => {
  //------------------------------------------------------------
  //for fetching movie review data 
   const [reviewData, setMovieData] = useState('');
-  //const {movie_id} = useParams();
   const reviewUrl = `https://api.themoviedb.org/3/movie/${movie_id}/reviews?language=en-US&page=1`;
+  //const reviewUrl ='http://localhost:5000/review/getreviewbymovieid'
 
   useEffect(() => {
     fetch(reviewUrl, {
@@ -51,6 +44,8 @@ const Review = () => {
       headers: {
         accept: 'application/json',
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZmU1M2JmY2RmMDNhNGZlMjAxZWU1Y2ZjNTZmZWFjYiIsInN1YiI6IjY0YjA3MGQyM2UyZWM4MDBlYzhhMjQ4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.wWiTRi2q2Kiv7oFbytQOdkXqZFBnLToMAmQXkj5ZgHY'
+        //Authorization: TMDB_authorization
+        //tmdbId: "1234"
       }
     })
     .then(res => res.json())
@@ -60,10 +55,9 @@ const Review = () => {
 
   
  //------------------------------------------------------------
-
+//display movie details and reviews
 
   return (
-    /* for displaying cards and search filter*/
     <div className='reviewPageContainer'>
         {/* for displaying movie details */} 
         <div>
@@ -74,44 +68,9 @@ const Review = () => {
         {/* for displaying review cards */} 
         <div>
           {reviewData ? <ReviewCardList reviewData={reviewData} /> : 'Loading...'}
-        </div>
-
-    
+        </div>    
     </div>
   )
 }
 
 export default Review;
-
-
-
-/* const Courses = () => (
-  <div className="main-content courses">
-    <div className="course-header group">
-      <h2>Courses</h2>
-      <ul className="course-nav">
-        <li>
-          <NavLink to="html">HTML</NavLink>
-        </li>
-        <li>
-          <NavLink to="css">CSS</NavLink>
-        </li>
-        <li>
-          <NavLink to="javascript">JavaScript</NavLink>
-        </li>
-      </ul>
-    </div>
-
-    <Routes>
-      <Route path="html" element={<HTML />} />
-      <Route path="css" element={<CSS />} />
-      <Route path="JavaScript" element={<JavaScript />} />
-    </Routes>
-
-
-  </div>
-);
-
-export default Courses;
-
- */
