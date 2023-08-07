@@ -2,21 +2,20 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 //import {movieData} from '../data/movieData';
 import MovieCardList from './MovieCardList'
+import MovieSearch from './MovieSearch';
 import '../css/movieCard.css'
 
 //popular movies
-let movieUrl = 'https://api.themoviedb.org/3/movie/popular?api_key=cfe53bfcdf03a4fe201ee5cfc56feacb&language=en-US&page=1'
-
-//top-rated movies
-//let movieUrl='https://api.themoviedb.org/3/movie/top_rated?api_key=cfe53bfcdf03a4fe201ee5cfc56feacb&language=en-US&page=1';
+const movieUrl = process.env.REACT_APP_MOVIE_URL;
 
 const Movie = () => {
 
-  /* 
-   const [movieData, setMovieData] = useState({ results: [] });
-   */
+  const [searchfield, setSearchfield] = useState('')
+  const onSearchChange = (event) => {
+    setSearchfield(event.target.value)
+  }
 
-  const [movieData, setMovieData] = useState('')
+  const [movieData, setMovieData] = useState([])
   useEffect(() => {
     fetch(movieUrl)
       .then(res => res.json())
@@ -24,24 +23,33 @@ const Movie = () => {
       .catch(err => console.log('Error during fetching the data', err))
   }, [])
 
-  return (
-    /* for displaying cards and search filter*/
+  //console.log(movieData);
 
+  const filteredMovies = movieData.filter(movie =>{
+    return movie.title.toLowerCase().includes(searchfield.toLowerCase());
+  }) 
+
+  return !movieData.length? <h1>Loading Movie Data...</h1> : 
+  (
+    /* for displaying cards and search filter*/
 
     <div className='moviePageContainer'>
 
-
       {/* for displaying cards */}
-      {movieData ? <MovieCardList movieData={movieData} /> : 'Loading...'}
+      
+      <MovieCardList movieData={filteredMovies} />
+
+
 
       {/* for displaying search filter */}
       <div className='movieSearchContainer'>
         <h2>Movie Search</h2>
-
+        
         <div className='movieFilter'>
           <div className='two_column'>
             <label><strong>Keywords</strong></label>
-            <input className='inputbox' type="text" id="keywords" value=""></input>
+            <MovieSearch searchChange={onSearchChange} />
+           
           </div>
         </div>
 
@@ -211,32 +219,3 @@ const Movie = () => {
 }
 
 export default Movie;
-
-/*
-import React from 'react';
-import MovieList from '../data/teachers';
-
-const Movie = () => {
-  let movies = MovieList.map((movie) => {
-    return (
-      <li className="teacher" key={movie.id} >
-        <img className="teacher-img" src={movie.img_src} alt="teacher" />
-        <h3>{movie.name}</h3>
-        <p>{movie.bio}</p>
-      </li>
-    );
-  }); 
-  
-  return (
-    <div className="main-content">
-      <h2>Movie List</h2>
-      <ul className="group">
-        {movies}    
-      </ul>
-    </div>
-  );
-}
-
-export default Movie;
-*/
-
