@@ -4,6 +4,7 @@ import {useParams} from 'react-router-dom';
 //import {reviewData} from '../data/reviewData';
 import MovieDetails from './MovieDetails';
 import ReviewCardList from './ReviewCardList';
+import ReviewSubmit from './ReviewSubmit';
 import '../css/reviewCard.css';
 
 //import { Routes, Route, NavLink } from 'react-router-dom';
@@ -34,10 +35,19 @@ const Review = () => {
 
  //------------------------------------------------------------
  //for fetching movie review data 
-  const [reviewData, setMovieData] = useState('');
+  const [reviewData, setReviewData] = useState('');
   //const reviewUrl = `https://api.themoviedb.org/3/movie/${movie_id}/reviews?language=en-US&page=1`;
-  const reviewUrl ='http://localhost:5000/review/getreviewbymovieid'
+  const reviewUrl =`http://localhost:5000/review/getreviewbymovieid/${movie_id}/`
 
+
+  useEffect(() => {
+    fetch(reviewUrl)
+      .then(res => res.json())
+      .then(data => setReviewData(data))
+      .catch(err => console.log('Error during fetching the data', err))
+  }, []);
+
+  
 /*   useEffect(() => {
     fetch(reviewUrl, {
       method: 'GET',
@@ -53,22 +63,8 @@ const Review = () => {
     .catch(err => console.log('Error during fetching the data', err))    
   }, []); */
 
-  useEffect(() => {
-    const tmdbId = '1234';
-    fetch('http://localhost:5000/review/getreviewbymovieid', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ tmdbId }),
-    })
-      .then((res) => res.json())
-      .then((data) => setReviews(data))
-      .catch((err) => console.log('Error fetching reviews:', err));
-  }, []);
-
-  console.log("Review data:")
-  console.log(reviewData);
+  //console.log("Review data:")
+  //console.log(reviewData);
 
   
  //------------------------------------------------------------
@@ -77,8 +73,13 @@ const Review = () => {
   return (
     <div className='reviewPageContainer'>
         {/* for displaying movie details */} 
-        <div>
-          {movieDetailsData ? <MovieDetails movieDetailsData={movieDetailsData} /> : 'Loading...'}
+        <div className='movieDetailsContainer'>
+          {movieDetailsData ? <MovieDetails 
+                                movieDetailsData={movieDetailsData} 
+                              /> : 'Loading...'}
+          <ReviewSubmit 
+            movie_id = {movie_id}
+          />
         </div>
 
 
