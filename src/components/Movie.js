@@ -7,13 +7,13 @@ import MovieSearchCheckBox from './MovieSearchCheckBox';
 import '../css/movieCard.css'
 
 
-const movieUrl = process.env.REACT_APP_MOVIE_URL;
+const movieUrl = process.env.REACT_APP_DOMAIN + 'movie/getall/';
 
 const Movie = () => {
   //console.log("in movie.js, props:");
   //console.log (props);
   //const movieData = props.movieData;
-   const [movieData, setMovieData] = useState([])
+  const [movieData, setMovieData] = useState([])  
   useEffect(() => {
     fetch(movieUrl)
       .then(res => res.json())

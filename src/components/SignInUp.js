@@ -8,10 +8,12 @@ const SignInUp = (props) => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] = useState(false); // New state to track login status
+  const [loginError, setLoginError] = useState(''); //to track login error
 
   const handleLoginClick = () => {
     // Add code to handle login button click
-    const apiUrl = 'http://localhost:5000/user/login';
+    //const apiUrl = 'http://localhost:5000/user/login';
+    const apiUrl = process.env.REACT_APP_DOMAIN + `user/login`;
 
     const queryParams = {
       userId: userName,
@@ -26,6 +28,7 @@ const SignInUp = (props) => {
           //console.log(response.data);
           setLoggedIn(true); // Update login status
           sessionStorage.setItem('userName', queryParams.userId);  
+          setLoginError(''); // Clear any previous error
         }
         else{
           setLoggedIn(false); // Update login status
@@ -33,7 +36,12 @@ const SignInUp = (props) => {
         }
       })
       .catch(error => {
-        //console.error('Error fetching API:', error);        
+        //console.error('Error fetching API:', error);
+        if (error.response && error.response.status === 400) {
+          setLoginError('Wrong password or user does not exist');
+        } else {
+          setLoginError('An unexpected error occurred. Please try again.');
+        }        
       });   
   };
 
@@ -95,6 +103,7 @@ const SignInUp = (props) => {
           <input type="text" id="userName" value={userName} onChange={(e) => setUserName(e.target.value)}></input>
           <label>Password</label>
           <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+          {loginError && <p className="login-error">{loginError}</p>}
           <button onClick={handleLoginClick}>Login</button>
           <button onClick={handleCreateAccountClick}>Create account</button>
         </div>    

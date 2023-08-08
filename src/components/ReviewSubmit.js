@@ -38,6 +38,8 @@ const ReviewSubmit = (props) => {
         console.log("data: ");
       console.log(props);
     */      
+      const ReviewSubmitUrl = process.env.REACT_APP_DOMAIN + `review/add`;
+
       const userName = sessionStorage.getItem('userName');
       //console.log("in review page: " + userName);
 
@@ -70,7 +72,7 @@ const ReviewSubmit = (props) => {
           };
       
           // Make the POST request to the server
-          fetch('http://localhost:5000/review/add', {
+          fetch(ReviewSubmitUrl, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -84,8 +86,8 @@ const ReviewSubmit = (props) => {
                 setReviewBody(''); // Clear the textarea
                 setStarRateValue(0); // Reset the rating value
                 setIsSubmitted(true); // Set the submitted state to true
-                //window.location.reload();
-                //setTimeout(() => {window.location.reload();}, 500);
+                window.location.reload();
+                setTimeout(() => {window.location.reload();}, 500);
               })
               .catch((err) => {
                 console.error('An error occurred:', err);
@@ -99,11 +101,11 @@ const ReviewSubmit = (props) => {
                 <h3>Write your review here:</h3>
                 <p className='login-status'>
                     {userName ? `(Logged in as ${userName})` : 
-                        '(Not logged in, please login to write a review)'}
+                        '(Not logged in, please login to write or update a review)'}
                 </p>
-                <p>
+                <div >
                     <strong>Rate:  </strong>
-                    <Box
+                    <Box className='rating_submit'
                         sx={{
                             width: 200,
                             display: 'flex',
@@ -127,7 +129,7 @@ const ReviewSubmit = (props) => {
                             <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : starRateValue]}</Box>
                         )}
                     </Box>
-                </p>
+                </div>
                 <textarea cols='60' rows='15'
                     value = {reviewBody}
                     onChange = {(e) => setReviewBody(e.target.value)}

@@ -1,30 +1,29 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import {useParams} from 'react-router-dom';
-//import {reviewData} from '../data/reviewData';
 import MovieDetails from './MovieDetails';
 import ReviewCardList from './ReviewCardList';
 import ReviewSubmit from './ReviewSubmit';
 import '../css/reviewCard.css';
 
-//import { Routes, Route, NavLink } from 'react-router-dom';
-const TMDB_authorization = process.env.REACT_APP_TMDB_AUTHORIZATION;
+
+//const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${movie_id}?language=en-US`;
 
 const Review = () => {
    //------------------------------------------------------------
-  //for fetching movie details data 
+  //for fetching movie details data, use TMDB API
   const [movieDetailsData, setmovieDetailsData] = useState('');
   const {movie_id} = useParams();
+
+  const TMDB_authorization = process.env.REACT_APP_TMDB_AUTHORIZATION;
+  const movieDetailsUrl = process.env.REACT_APP_TMDB_MOVIEDETAIL_URL + `${movie_id}?language=en-US`;
 
   if (movie_id === undefined) {
     console.log("nothing");
     return <p>nothing to show</p>;
   }
 
-
   //get data from TMDB
-  const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${movie_id}?language=en-US`;
-
   useEffect(() => {
     fetch(movieDetailsUrl, {
       method: 'GET',
@@ -43,9 +42,8 @@ const Review = () => {
  //------------------------------------------------------------
  //for fetching movie review data 
   const [reviewData, setReviewData] = useState('');
-  //const reviewUrl = `https://api.themoviedb.org/3/movie/${movie_id}/reviews?language=en-US&page=1`;
-  const reviewUrl =`http://localhost:5000/review/getreviewbymovieid/${movie_id}/`
 
+  const reviewUrl = process.env.REACT_APP_DOMAIN + `review/getreviewbymovieid/${movie_id}/`
 
   useEffect(() => {
     fetch(reviewUrl)
