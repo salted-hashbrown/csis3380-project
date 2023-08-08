@@ -35,8 +35,8 @@ const ReviewCard = (props) => {
     const [hover, setHover] = React.useState(-1); //for star rating hoving effect
     const [isSubmitted, setIsSubmitted] = useState(false); // State to track if the review has been submitted 
 
-    const ReviewUpdateUrl = process.env.REACT_APP_DOMAIN + `review/update`;
-    const ReviewDeleteUrl = process.env.REACT_APP_DOMAIN + `review/delete`;  
+    const ReviewUpdateUrl = process.env.REACT_APP_DOMAIN + `/review/update`;
+    const ReviewDeleteUrl = process.env.REACT_APP_DOMAIN + `/review/delete`;  
 
     let createdDate = props.createdDate.substring(0,10);  //extract the yyyy-mm-dd from the original string   
 

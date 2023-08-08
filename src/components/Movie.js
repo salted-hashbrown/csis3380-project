@@ -7,7 +7,7 @@ import MovieSearchCheckBox from './MovieSearchCheckBox';
 import '../css/movieCard.css'
 
 
-const movieUrl = process.env.REACT_APP_DOMAIN + 'movie/getall/';
+const movieUrl = process.env.REACT_APP_DOMAIN + '/movie/getall/';
 
 const Movie = () => {
   //console.log("in movie.js, props:");

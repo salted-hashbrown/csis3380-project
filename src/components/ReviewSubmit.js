@@ -38,7 +38,7 @@ const ReviewSubmit = (props) => {
         console.log("data: ");
       console.log(props);
     */      
-      const ReviewSubmitUrl = process.env.REACT_APP_DOMAIN + `review/add`;
+      const ReviewSubmitUrl = process.env.REACT_APP_DOMAIN + `/review/add`;
 
       const userName = sessionStorage.getItem('userName');
       //console.log("in review page: " + userName);

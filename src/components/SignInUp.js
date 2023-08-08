@@ -13,7 +13,7 @@ const SignInUp = (props) => {
   const handleLoginClick = () => {
     // Add code to handle login button click
     //const apiUrl = 'http://localhost:5000/user/login';
-    const apiUrl = process.env.REACT_APP_DOMAIN + `user/login`;
+    const apiUrl = process.env.REACT_APP_DOMAIN + `/user/login`;
 
     const queryParams = {
       userId: userName,
