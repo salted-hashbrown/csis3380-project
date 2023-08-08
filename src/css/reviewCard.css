@@ -36,3 +36,8 @@
 .noReview {
   width: 450px;
 }
+
+.login-status {
+  text-align: left;
+  margin-right: 30px;
+}

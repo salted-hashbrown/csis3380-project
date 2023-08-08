@@ -14,6 +14,7 @@ const ReviewCardList = ({reviewData}) => {
                             return(
                                 <ReviewCard
                                     key = {review._id}
+                                    _id = {review._id}
                                     userId = {review.userId}
                                     createdDate = {review.createdDate}                                
                                     rating = {review.rating}
