@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 //import {Link} from 'react-router-dom';
 //import {MdOutlineRateReview} from 'react-icons/md';
-import {FaStar} from 'react-icons/fa';
+//import {FaStar} from 'react-icons/fa';
 import Rating from '@mui/material/Rating';
 import Box from '@mui/material/Box';
 import StarIcon from '@mui/icons-material/Star';
