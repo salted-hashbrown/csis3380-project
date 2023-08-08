@@ -6,14 +6,15 @@ const ReviewCardList = ({reviewData}) => {
     return (
         <div className='reviewCardContainer'>            
                 {
+                    //reviewData.results.map((review, i) => {       //for TMDB API
                     reviewData.results.map((review, i) => {
                         return(
                             <ReviewCard
-                                key = {review.id}
-                                author = {review.author}
-                                updated_at = {review.updated_at}                                
-                                rating = {review.author_details.rating}
-                                content = {review.content}
+                                key = {_id}
+                                author = {review.userId}
+                                updated_at = {review.createdDate}                                
+                                rating = {review.rating}
+                                content = {review.body}
                             />
                         );
                     })
@@ -23,3 +24,11 @@ const ReviewCardList = ({reviewData}) => {
 };
 
 export default ReviewCardList;
+
+/*
+ key = {review.id}
+                                author = {review.author}
+                                updated_at = {review.updated_at}                                
+                                rating = {review.author_details.rating}
+                                content = {review.content}
+*/
