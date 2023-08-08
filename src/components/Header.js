@@ -8,10 +8,13 @@ const Header = () => (
       <li><NavLink to="/" style={({isActive}) => isActive ? {background: 'red'} : undefined}>Home</NavLink></li>
       <li><NavLink to="/signinup">Sign In / Sign Up</NavLink></li>
       <li><NavLink to="/movie">Movie</NavLink></li>
-      <li><NavLink to="/review">Review</NavLink></li>
+
     </ul>    
   </header>
 );
 
 export default Header;
 
+/*
+      <li><NavLink to="/review">Review</NavLink></li>
+*/

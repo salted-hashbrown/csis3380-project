@@ -38,21 +38,34 @@ const ReviewSubmit = (props) => {
         console.log("data: ");
       console.log(props);
     */      
+      const userName = sessionStorage.getItem('userName');
+      //console.log("in review page: " + userName);
+
 
       const [starRateValue, setStarRateValue] = useState(0);      //for star rating Material-UI component
       const [hover, setHover] = React.useState(-1);     //for star rating Material-UI component
       //console.group({starRateValue});   //check the user feedback, the value should be x 2
 
       const [reviewBody, setReviewBody] = useState(''); // State to hold the review body  
-      const [isSubmitted, setIsSubmitted] = useState(false); // State to track if the review has been submitted
+      const [isSubmitted, setIsSubmitted] = useState(false); // State to track if the review has been submitted      
+      
+      
       const handleSubmit = () => {
+        if (!userName || userName.trim() === "") {
+          alert("Please log in to submit a review");
+          return; // Return early from the function to stop its execution
+        }
+        if (!reviewBody|| reviewBody.trim() === "") {
+          alert("Please write a review before submit");
+          return; // Return early from the function to stop its execution
+        }
+
+
         let modified_starRateValue = starRateValue * 2;
           const reviewData = {
-            userId: 'sunny_test',
-            //tmdbId: '298618',
+            userId: userName,
             tmdbId: props.movie_id,
             reviewBody, // Use the review body from the state
-            //reviewBody: 'test_1',
             rating: modified_starRateValue.toString()    //star rate value
           };
       
@@ -72,6 +85,7 @@ const ReviewSubmit = (props) => {
                 setStarRateValue(0); // Reset the rating value
                 setIsSubmitted(true); // Set the submitted state to true
                 //window.location.reload();
+                //setTimeout(() => {window.location.reload();}, 500);
               })
               .catch((err) => {
                 console.error('An error occurred:', err);
@@ -83,6 +97,10 @@ const ReviewSubmit = (props) => {
     return(            
             <div>
                 <h3>Write your review here:</h3>
+                <p className='login-status'>
+                    {userName ? `(Logged in as ${userName})` : 
+                        '(Not logged in, please login to write a review)'}
+                </p>
                 <p>
                     <strong>Rate:  </strong>
                     <Box

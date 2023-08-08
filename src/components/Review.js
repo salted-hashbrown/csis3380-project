@@ -15,6 +15,13 @@ const Review = () => {
   //for fetching movie details data 
   const [movieDetailsData, setmovieDetailsData] = useState('');
   const {movie_id} = useParams();
+
+  if (movie_id === undefined) {
+    console.log("nothing");
+    return <p>nothing to show</p>;
+  }
+
+
   //get data from TMDB
   const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${movie_id}?language=en-US`;
 
@@ -47,7 +54,38 @@ const Review = () => {
       .catch(err => console.log('Error during fetching the data', err))
   }, []);
 
+
   
+//------------------------------------------------------------
+//display movie details and reviews
+
+  return (
+    
+    <div className='reviewPageContainer'>
+
+        {/* for displaying movie details */} 
+        <div className='movieDetailsContainer'>
+          {movieDetailsData ? <MovieDetails 
+                                movieDetailsData={movieDetailsData} 
+                              /> : 'Loading...'}
+          <ReviewSubmit 
+            movie_id = {movie_id}
+          />
+        </div>
+
+
+        {/* for displaying review cards */} 
+        <div>
+
+          {reviewData ? <ReviewCardList reviewData={reviewData} /> : 'Loading...'}
+        </div>    
+    </div>
+  )
+}
+
+export default Review;
+
+
 /*   useEffect(() => {
     fetch(reviewUrl, {
       method: 'GET',
@@ -65,30 +103,3 @@ const Review = () => {
 
   //console.log("Review data:")
   //console.log(reviewData);
-
-  
- //------------------------------------------------------------
-//display movie details and reviews
-
-  return (
-    <div className='reviewPageContainer'>
-        {/* for displaying movie details */} 
-        <div className='movieDetailsContainer'>
-          {movieDetailsData ? <MovieDetails 
-                                movieDetailsData={movieDetailsData} 
-                              /> : 'Loading...'}
-          <ReviewSubmit 
-            movie_id = {movie_id}
-          />
-        </div>
-
-
-        {/* for displaying review cards */} 
-        <div>
-          {reviewData ? <ReviewCardList reviewData={reviewData} /> : 'Loading...'}
-        </div>    
-    </div>
-  )
-}
-
-export default Review;
