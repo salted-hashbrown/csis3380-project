@@ -12,16 +12,12 @@ RMTV is a single page application built using the MERN stack, allowing users to 
 
 # MERN
 
----
-
 | Frontend | HTML, CSS, Javascript, React.js |
 | --- | --- |
 | Backend | Node.js, Express, Mongoose |
 | Database | MongoDB |
 
 # API
-
----
 
 - movie
     - initiatialize
@@ -38,8 +34,6 @@ RMTV is a single page application built using the MERN stack, allowing users to 
     - delete
 
 # Deployment
-
----
 
 Visit https://csis3380-project.vercel.app/
 
