@@ -69,9 +69,10 @@ const SignInUp = (props) => {
     // Add code to handle create account button click
     sessionStorage.setItem('userName', '');
     setLoggedIn(false); // Update login status
+    window.location.reload(); // Reload the page
   };  
 
-  if(sessionStorage.getItem('userName').length > 0){
+  if(sessionStorage.getItem('userName')!= null && sessionStorage.getItem('userName').length > 0 ){
     return (
       <div className="signup_page_body">
         <div className="signup_box ">

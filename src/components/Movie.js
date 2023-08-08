@@ -10,13 +10,16 @@ import '../css/movieCard.css'
 const movieUrl = process.env.REACT_APP_MOVIE_URL;
 
 const Movie = () => {
-  const [movieData, setMovieData] = useState([])
+  //console.log("in movie.js, props:");
+  //console.log (props);
+  //const movieData = props.movieData;
+   const [movieData, setMovieData] = useState([])
   useEffect(() => {
     fetch(movieUrl)
       .then(res => res.json())
       .then(data => setMovieData(data))
       .catch(err => console.log('Error during fetching the data', err))
-  }, [])
+  }, []) 
   
   //console.log(movieData);   //display whole data in console
 

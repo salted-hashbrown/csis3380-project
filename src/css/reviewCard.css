@@ -4,14 +4,13 @@
     align-items: flex-start;
   }
 
-  .creviewCardContainer {
-    width: 70%;
+.reviewCardContainer {    
     /* max-width: 1100px; */
     margin: 1.5em;
-    flex: 70%;
-  }
+    flex: 50%;
+}
 
-  .reviewCard {
+.reviewCard {
     box-sizing: border-box;
     background: #f7f7fc;
     padding: 10px;
@@ -19,10 +18,26 @@
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
     display: grid;
     margin: 40px;
-  }
+    width: 450px;
+}
 
-  .reviewCard:hover{
+.reviewCard:hover{
     transform: translateY(-0.5rem);
     box-shadow: 0.5rem 0.75rem 1.5rem #bbbbbb;
     transition: 0.2s;
-  }
+}
+
+.movieDetailsContainer{
+  margin: 20px;
+  padding: 10px;
+  flex: 50%;
+}
+
+.noReview {
+  width: 450px;
+}
+
+.login-status {
+  text-align: left;
+  margin-right: 30px;
+}
