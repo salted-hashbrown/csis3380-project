@@ -71,9 +71,9 @@ const Movie = () => {
         <h2>Movie Search</h2>
         
         <div className='movieFilter'>
-          <div className='two_column'>
-            <label><strong>Movie Title</strong></label>
-            <MovieSearch searchChange={onSearchChange} />
+          <div >
+            <label className='movieSearchBox'><strong>Movie Title</strong></label>                       
+            <div className='movieSearchBox'><MovieSearch searchChange={onSearchChange} /></div>
           </div>
         </div>
 
