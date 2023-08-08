@@ -47,7 +47,7 @@ const SignInUp = (props) => {
 
   const handleCreateAccountClick = () => {
     // Add code to handle create account button click
-    const apiUrl = 'http://localhost:5000/user/add';
+    const apiUrl = process.env.REACT_APP_DOMAIN + `/user/add`;
 
     const queryParams = {
       userId: userName,
@@ -62,6 +62,7 @@ const SignInUp = (props) => {
           //console.log(response.data);
           setLoggedIn(true); // Update login status
           sessionStorage.setItem('userName', queryParams.userId);  
+          setLoginError(''); // Clear any previous error
         }
         else{
           setLoggedIn(false); // Update login status
@@ -69,7 +70,12 @@ const SignInUp = (props) => {
         }
       })
       .catch(error => {
-        //console.error('Error fetching API:', error);        
+        if (error.response && error.response.status === 400) {
+          setLoginError('Create account error');
+        } else {
+          setLoginError('An unexpected error occurred');
+        }
+        //console.error('Error fetching API:', error);         
       });   
   };  
   
@@ -100,9 +106,9 @@ const SignInUp = (props) => {
       <div className="signup_box ">
         <h2>Sign In / Sign Up</h2>
           <label>User Name</label>
-          <input type="text" id="userName" value={userName} onChange={(e) => setUserName(e.target.value)}></input>
+          <input className = 'input_textbox' type="text" id="userName" value={userName} onChange={(e) => setUserName(e.target.value)}></input>
           <label>Password</label>
-          <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+          <input className='input_textbox' type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
           {loginError && <p className="login-error">{loginError}</p>}
           <button onClick={handleLoginClick}>Login</button>
           <button onClick={handleCreateAccountClick}>Create account</button>

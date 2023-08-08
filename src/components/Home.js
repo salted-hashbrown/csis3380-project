@@ -5,7 +5,7 @@ import MovieCardSimpleList from './MovieCardSimpleList';
 const Home = () => {
 
   const dbMovie = process.env.REACT_APP_DOMAIN + '/movie/getall';
-  console.log(dbMovie);
+  //console.log(dbMovie);
 
   const [movieData, setMovieData] = useState([]);
   useEffect(() => {
