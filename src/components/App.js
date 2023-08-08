@@ -9,15 +9,15 @@ import Movie from './Movie';
 import Review from './Review';
 
 const App = () => (
-    <div className="container">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/signinup" element={<SignInUp title="About" />} />
-        <Route path="/movie" element={<Movie />} />
-        <Route path="/review/:movie_id" element={<Review />} />
-      </Routes>
-    </div>
+  <div className="container">
+    <Header />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/signinup" element={<SignInUp title="About" />} />
+      <Route path="/movie" element={<Movie />} />
+      <Route path="/review/:movie_id" element={<Review />} />
+    </Routes>
+  </div>
 );
 
 export default App;
