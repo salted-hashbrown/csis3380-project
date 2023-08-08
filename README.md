@@ -2,8 +2,6 @@ RMTV is a single page application built using the MERN stack, allowing users to 
 
 # **Features**
 
----
-
 - Utilizes the TMDB public API for movie data retrieval.
 - Displays movie details through React card components.
 - Implements a search filter for users to search for movie with name, genre, year, etc.
