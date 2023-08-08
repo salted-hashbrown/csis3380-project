@@ -4,9 +4,9 @@ const MovieSearch = ({ searchfield, searchChange }) => {
   return (
     <div >
       <input
+        className='input_textbox'
         type='search'
-        placeholder='search'
-        
+        placeholder='search'        
         onChange={searchChange}
       />
     </div>
