@@ -20,7 +20,7 @@ const SignInUp = (props) => {
       password: password
     };
     
-    console.log(userName + "," + password);
+    //console.log(userName + "," + password);
 
     axios.post(apiUrl, queryParams)
       .then(response => {
@@ -54,7 +54,7 @@ const SignInUp = (props) => {
       password: password
     };
     
-    console.log(userName + "," + password);
+    //console.log(userName + "," + password);
 
     axios.post(apiUrl, queryParams)
       .then(response => {

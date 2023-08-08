@@ -86,7 +86,7 @@ const ReviewCard = (props) => {
           reviewId: props._id
         };
         
-        if (window.confirm('Are you sure you want to delete this review?')) {
+        if (window.confirm('Delete this review?')) {
             const reviewData = {
               reviewId: props._id
             };

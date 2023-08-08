@@ -97,12 +97,13 @@ const ReviewSubmit = (props) => {
       };
 
     return(            
-            <div>
+            <div className='movieDetailsContainer'> 
                 <h3>Write your review here:</h3>
                 <p className='login-status'>
                     {userName ? `(Logged in as ${userName})` : 
                         '(Not logged in, please login to write or update a review)'}
                 </p>
+                <br></br>
                 <div >
                     <strong>Rate:  </strong>
                     <Box className='rating_submit'
