@@ -43,7 +43,7 @@ const Review = () => {
  //for fetching movie review data 
   const [reviewData, setReviewData] = useState('');
 
-  const reviewUrl = process.env.REACT_APP_DOMAIN + `review/getreviewbymovieid/${movie_id}/`
+  const reviewUrl = process.env.REACT_APP_DOMAIN + `/review/getreviewbymovieid/${movie_id}/`
 
   useEffect(() => {
     fetch(reviewUrl)
