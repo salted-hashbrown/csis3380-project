@@ -35,23 +35,40 @@ const Review = () => {
  //------------------------------------------------------------
  //for fetching movie review data 
   const [reviewData, setMovieData] = useState('');
-  const reviewUrl = `https://api.themoviedb.org/3/movie/${movie_id}/reviews?language=en-US&page=1`;
-  //const reviewUrl ='http://localhost:5000/review/getreviewbymovieid'
+  //const reviewUrl = `https://api.themoviedb.org/3/movie/${movie_id}/reviews?language=en-US&page=1`;
+  const reviewUrl ='http://localhost:5000/review/getreviewbymovieid'
 
-  useEffect(() => {
+/*   useEffect(() => {
     fetch(reviewUrl, {
       method: 'GET',
       headers: {
-        accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZmU1M2JmY2RmMDNhNGZlMjAxZWU1Y2ZjNTZmZWFjYiIsInN1YiI6IjY0YjA3MGQyM2UyZWM4MDBlYzhhMjQ4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.wWiTRi2q2Kiv7oFbytQOdkXqZFBnLToMAmQXkj5ZgHY'
+        //accept: 'application/json',
+        //Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZmU1M2JmY2RmMDNhNGZlMjAxZWU1Y2ZjNTZmZWFjYiIsInN1YiI6IjY0YjA3MGQyM2UyZWM4MDBlYzhhMjQ4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.wWiTRi2q2Kiv7oFbytQOdkXqZFBnLToMAmQXkj5ZgHY'
         //Authorization: TMDB_authorization
-        //tmdbId: "1234"
+        tmdbId: "1234"
       }
     })
     .then(res => res.json())
     .then(data => setMovieData(data))
     .catch(err => console.log('Error during fetching the data', err))    
+  }, []); */
+
+  useEffect(() => {
+    const tmdbId = '1234';
+    fetch('http://localhost:5000/review/getreviewbymovieid', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ tmdbId }),
+    })
+      .then((res) => res.json())
+      .then((data) => setReviews(data))
+      .catch((err) => console.log('Error fetching reviews:', err));
   }, []);
+
+  console.log("Review data:")
+  console.log(reviewData);
 
   
  //------------------------------------------------------------

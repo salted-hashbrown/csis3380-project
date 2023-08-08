@@ -1,5 +1,3 @@
-//This part not completed
-
 import React from 'react';
 
 const MovieSearch = ({ searchfield, searchChange }) => {
@@ -8,6 +6,7 @@ const MovieSearch = ({ searchfield, searchChange }) => {
       <input
         type='search'
         placeholder='search'
+        
         onChange={searchChange}
       />
     </div>
