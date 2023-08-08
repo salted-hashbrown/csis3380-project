@@ -4,8 +4,8 @@ import MovieCardSimpleList from './MovieCardSimpleList';
 
 const Home = () => {
 
-  const dbMovie = process.env.REACT_APP_DB_HOST + '/movie/getall';
-  // console.log(dbMovie);
+  const dbMovie = process.env.REACT_APP_DOMAIN + 'movie/getall';
+  console.log(dbMovie);
 
   const [movieData, setMovieData] = useState([]);
   useEffect(() => {
