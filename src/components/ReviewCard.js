@@ -25,7 +25,7 @@ const getLabelText = (value) => {
 };
 //---------------------------------
 
-
+console.log(sessionStorage.getItem('userName'));
 
 const ReviewCard = (props) => {
   //const [isExpanded, setIsExpanded] = useState(false);      //to implement "read more..." function
@@ -265,8 +265,10 @@ const ReviewCard = (props) => {
         )}
       </div>
       <div className='voteContainer'>
-        <button className={`voteButtons ${isUpvoted ? 'upvoted' : ''}`} onClick={handleUpvoteClick}>▲  {currentUpvotes}</button>
-        <button className={`voteButtons ${isDownvoted ? 'downvoted' : ''}`} onClick={handleDownvoteClick}>▼  {currentDownvotes}</button>
+        <button className={`voteButtons ${isUpvoted ? 'upvoted' : ''}`} onClick={!(sessionStorage.getItem('userName') === '' || sessionStorage.getItem('userName') === null)
+          ? handleUpvoteClick : () => (alert('please log in first'))}>▲  {currentUpvotes}</button>
+        <button className={`voteButtons ${isDownvoted ? 'downvoted' : ''}`} onClick={!(sessionStorage.getItem('userName') === '' || sessionStorage.getItem('userName') === null)
+          ? handleDownvoteClick : () => (alert('please log in first'))}>▼  {currentDownvotes}</button>
       </div>
     </div>
   );
