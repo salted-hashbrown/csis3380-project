@@ -7,8 +7,6 @@ import ReviewSubmit from './ReviewSubmit';
 import '../css/reviewCard.css';
 
 
-//const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${movie_id}?language=en-US`;
-
 const Review = () => {
    //------------------------------------------------------------
   //for fetching movie details data, use TMDB API
@@ -83,21 +81,3 @@ const Review = () => {
 
 export default Review;
 
-
-/*   useEffect(() => {
-    fetch(reviewUrl, {
-      method: 'GET',
-      headers: {
-        //accept: 'application/json',
-        //Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZmU1M2JmY2RmMDNhNGZlMjAxZWU1Y2ZjNTZmZWFjYiIsInN1YiI6IjY0YjA3MGQyM2UyZWM4MDBlYzhhMjQ4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.wWiTRi2q2Kiv7oFbytQOdkXqZFBnLToMAmQXkj5ZgHY'
-        //Authorization: TMDB_authorization
-        tmdbId: "1234"
-      }
-    })
-    .then(res => res.json())
-    .then(data => setMovieData(data))
-    .catch(err => console.log('Error during fetching the data', err))    
-  }, []); */
-
-  //console.log("Review data:")
-  //console.log(reviewData);

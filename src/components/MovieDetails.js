@@ -8,28 +8,6 @@ import Rating from '@mui/material/Rating';
 // import ReviewSubmit from './ReviewSubmit';
 import '../css/movieDetails.css';
 
-//---------------------------------
-//for star rating
-const labels = {
-    0.5: '1',
-    1: '2',
-    1.5: '3',
-    2: '4',
-    2.5: '5',
-    3: '6',
-    3.5: '7',
-    4: '8',
-    4.5: '9',
-    5: '10',
-  };
-
-/*   const getLabelText = (value) => {
-    return `${value} Star${value !== 1 ? 's' : ''}, ${labels[value]}`;
-  } */
-//---------------------------------
-
-
-
 const MovieDetails = (props) => {  
 
     return(
@@ -47,11 +25,3 @@ const MovieDetails = (props) => {
 export default MovieDetails;
 
 
-/* option menu
-<select>
-                    {Array.from({ length: 10 }, (_, i) => (
-                        <option value={i + 1}>{i + 1}</option>
-                    ))}
-                    </select>
-*/
-           //<ReviewSubmit />
