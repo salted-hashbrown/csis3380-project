@@ -6,7 +6,6 @@ const MovieCardList = ({movieData}) => {
     return (
         <div className='cardContainer'>            
                 {
-                    //movieData.results.map((movie, i) => {        //if TMDB API is used, use this one
                     movieData.map((movie, i) => {
                         return(
                             <MovieCard

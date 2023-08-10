@@ -15,6 +15,3 @@ const Header = () => (
 
 export default Header;
 
-/*
-      <li><NavLink to="/review">Review</NavLink></li>
-*/

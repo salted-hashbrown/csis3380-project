@@ -30,14 +30,7 @@ const labels = {
 
 
 const ReviewSubmit = (props) => {
-    /*
-    const stars = Array.from({ length: Math.round(props.movieDetailsData.vote_average)/2 }, 
-    (_, index) => (
-        <FaStar key={index} className='starStyle' />        //calculate no.of star based on vote_average value
-      ));
-        console.log("data: ");
-      console.log(props);
-    */      
+ 
       const ReviewSubmitUrl = process.env.REACT_APP_DOMAIN + `/review/add`;
 
       const userName = sessionStorage.getItem('userName');

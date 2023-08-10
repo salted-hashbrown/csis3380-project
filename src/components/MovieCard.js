@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {MdOutlineRateReview} from 'react-icons/md';     //for write-review icon
 //import {FaStar} from 'react-icons/fa';
-import Rating from '@mui/material/Rating';              //using MUI library for star rating
+import Rating from '@mui/material/Rating';              //using MUI library for star rating, refer to below comments
 //npm install @mui/material @emotion/react @emotion/styled
 //npm install @mui/icons-material
 //https://mui.com/material-ui/react-rating/
@@ -24,15 +24,11 @@ const Card = (props) => {
 
                     {/* movie title */}
                     <h3 className='cardTitle'>{props.title}</h3>
-                    {/* <h4>ID: {props.movie_id}</h4> */}
-                    
-                    {/* <p>{props.release_date}</p> */}
                     
                 </div>
                 <div className='cardFooter'>
                     <div>
                         {/* movie rating */}
-                        {/* {stars} {props.vote_average} */}
                         <Rating name="read-only" value={ Math.round(props.vote_average)/2} precision={0.5} readOnly size="small" /> {props.vote_average}
                     </div>
                     <div>

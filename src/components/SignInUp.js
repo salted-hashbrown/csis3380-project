@@ -12,7 +12,6 @@ const SignInUp = (props) => {
 
   const handleLoginClick = () => {
     // Add code to handle login button click
-    //const apiUrl = 'http://localhost:5000/user/login';
     const apiUrl = process.env.REACT_APP_DOMAIN + `/user/login`;
 
     const queryParams = {
@@ -96,28 +95,23 @@ const SignInUp = (props) => {
             <button onClick={handleLogoutClick}>Logout</button>
           </div>    
       </div>
-  
-  
-  );  
+    );  
   }
   else{
-  return (
-    <div className="signup_page_body">
-      <div className="signup_box ">
-        <h2>Sign In / Sign Up</h2>
-          <label>User Name</label>
-          <input className = 'input_textbox' type="text" id="userName" value={userName} onChange={(e) => setUserName(e.target.value)}></input>
-          <label>Password</label>
-          <input className='input_textbox' type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
-          {loginError && <p className="login-error">{loginError}</p>}
-          <button onClick={handleLoginClick}>Login</button>
-          <button onClick={handleCreateAccountClick}>Create account</button>
-        </div>    
-    </div>
-
-
-);
-}
-
-}
+    return (
+      <div className="signup_page_body">
+        <div className="signup_box ">
+          <h2>Sign In / Sign Up</h2>
+            <label>User Name</label>
+            <input className = 'input_textbox' type="text" id="userName" value={userName} onChange={(e) => setUserName(e.target.value)}></input>
+            <label>Password</label>
+            <input className='input_textbox' type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+            {loginError && <p className="login-error">{loginError}</p>}
+            <button onClick={handleLoginClick}>Login</button>
+            <button onClick={handleCreateAccountClick}>Create account</button>
+          </div>    
+      </div>
+    );
+  }
+};
 export default SignInUp;

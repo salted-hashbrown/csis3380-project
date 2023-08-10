@@ -46,7 +46,7 @@ const Movie = () => {
   //handle filtered movies data
   const filteredMovies = movieData.filter(movie =>{
   return (
-    movie.title.toLowerCase().includes(titleSearchField.toLowerCase()) &&   //move title
+    movie.title.toLowerCase().includes(titleSearchField.toLowerCase()) &&   //movie title
     (selectedGenres.length === 0 || selectedGenres.every(genreId => movie.genre_ids.includes(genreId)))   //genres
   );
 });
@@ -105,28 +105,3 @@ const Movie = () => {
 export default Movie;
 
 
-/*
-<input className='inputbox' type="text" id="keywords" value=""></input>
-*/
-
-
-/*
-<MovieSearch searchChange={onSearchChange_2} />
-*/
-
-/*
-          <label><strong>Release Dates</strong></label>
-          <div className='two_column'>
-            <span>From</span>
-            <input className='inputbox' type="date" id='start' name="startDate" />
-          </div>
-          <div className='two_column'>
-            <span>To</span>
-            <input className='inputbox' type="date" id='end' name="endDate" />
-          </div>
-
-
-          <div className='movieFilter'>
-            <button>Search</button>
-          </div>
-*/

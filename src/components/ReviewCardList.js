@@ -9,7 +9,6 @@ const ReviewCardList = ({ reviewData }) => {
         return (
             <div className='reviewCardContainer'>
                 {
-                    //reviewData.results.map((review, i) => {       //for TMDB API
                     reviewData.map((review, i) => {
                         return (
                             <ReviewCard
@@ -38,10 +37,3 @@ const ReviewCardList = ({ reviewData }) => {
 
 export default ReviewCardList;
 
-/*
- key = {review.id}
-                                author = {review.author}
-                                updated_at = {review.updated_at}                                
-                                rating = {review.author_details.rating}
-                                content = {review.content}
-*/

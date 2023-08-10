@@ -39,7 +39,6 @@ const ReviewCard = (props) => {
   const [isDownvoted, setIsDownvoted] = useState(props.downvotes.includes(sessionStorage.getItem('userName')));
   const [currentDownvotes, setCurrentDownvotes] = useState(props.downvotes.length);
 
-
   const ReviewUpdateUrl = process.env.REACT_APP_DOMAIN + `/review/update`;
   const ReviewDeleteUrl = process.env.REACT_APP_DOMAIN + `/review/delete`;
 
@@ -264,6 +263,7 @@ const ReviewCard = (props) => {
           </>
         )}
       </div>
+      {/* for upVote and downVote function */}
       <div className='voteContainer'>
         <button className={`voteButtons ${isUpvoted ? 'upvoted' : ''}`} onClick={!(sessionStorage.getItem('userName') === '' || sessionStorage.getItem('userName') === null)
           ? handleUpvoteClick : () => (alert('please log in first'))}>▲  {currentUpvotes}</button>

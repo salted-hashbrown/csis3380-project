@@ -7,6 +7,7 @@ import Home from './Home';
 import SignInUp from './SignInUp';
 import Movie from './Movie';
 import Review from './Review';
+import NotFound from './NotFound.js';
 
 const App = () => (
   <div className="container">
@@ -17,6 +18,7 @@ const App = () => (
       <Route path="/movie" element={<Movie />} />
       <Route path="/review" element={<Review />} />
       <Route path="/review/:movie_id" element={<Review />} />
+      <Route path="*" element={<NotFound />} /> {/* Catch-all route */}
     </Routes>
   </div>
 );
